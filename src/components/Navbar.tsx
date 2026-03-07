@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <header className="w-full flex justify-center mt-6">
+    <header className="w-full flex justify-center ">
       <div className="w-full max-w-7xl  rounded-xl px-8 py-4 flex items-center justify-between">
         
         <div className="flex items-center">
@@ -33,7 +33,7 @@ export default function Navbar() {
         </nav>
 
         <button className="bg-blue-900 text-white text-sm px-5 py-2 rounded-lg hover:bg-blue-800 transition">
-          Solicitar orçamento
+          Solicitar Orçamento
         </button>
       </div>
     </header>
