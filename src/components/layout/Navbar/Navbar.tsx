@@ -1,3 +1,4 @@
+import Button from "@/components/ui/Button";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -7,7 +8,7 @@ export default function Navbar() {
         
         <div className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/assets/icons/logo.png"
             alt="Backbook Solutions"
             width={120}
             height={40}
@@ -32,9 +33,9 @@ export default function Navbar() {
           </a>
         </nav>
 
-        <button className="bg-blue-900 text-white text-sm px-5 py-2 rounded-lg hover:bg-blue-800 transition">
-          Solicitar Orçamento
-        </button>
+        <Button>
+          Solicitar orçamento
+        </Button>
       </div>
     </header>
   );

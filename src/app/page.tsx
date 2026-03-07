@@ -1,10 +1,9 @@
 import HeroSection from "@/components/home/HeroSection";
-import Image from "next/image";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
+    <div className="flex flex-col px-8 bg-background">
       <Navbar />
       <HeroSection />
     </div>
