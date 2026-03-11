@@ -9,7 +9,7 @@ const features = [
 
 function AboutUsSection() {
   return (
-    <div className="w-full flex flex-col text-center bg-linear-to-b from-indigo-900 to-gray-200 min-h-screen pt-30 pb-16 px-12 -mt-10 z-20">
+    <div className="w-full flex flex-col text-center bg-linear-to-b from-primary-color via-primary-color to-transparent min-h-screen pt-30 pb-16 px-12 -mt-10 z-20">
       <h2 className="text-center text-3xl font-light md:text-4xl text-white mb-5 ">
         <strong className="font-bold">Quem </strong>Somos <strong className="font-bold"> e o </strong> Que Nos Move
       </h2>
