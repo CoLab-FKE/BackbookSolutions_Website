@@ -29,7 +29,7 @@ export default function WhyUs() {
               alt="Foto de uma escavadora"
               width={450}
               height={250}
-              className="w-full h-40 sm:h-44 md:h-48 duration-200 transition-transform hover:scale-105 rounded-md object-cover object-center"
+              className="w-full h-26  duration-200 transition-transform hover:scale-105 rounded-md object-cover object-center"
             />
           </div>
         </header>

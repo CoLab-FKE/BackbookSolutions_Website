@@ -6,6 +6,7 @@ import ShopSection from "@/components/home/ShopSection";
 import ServicosOferecidos from "@/components/home/ServiçosOferecidos";
 import WhyUs from "@/components/home/WhyUs";
 import Navbar from "@/components/layout/Navbar/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -38,6 +39,10 @@ export default function Home() {
 
       <div id="contacto" className="w-full md:px-10 scroll-mt-24">
         <CTA />
+      </div>
+
+      <div id="contacto" className="w-full scroll-mt-24">
+        <Footer />
       </div>
     </div>
   );
