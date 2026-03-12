@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="w-full bg-gray-100">
+    <header className="w-full bg-white z-11">
       <div className="flex items-center justify-between px-6 lg:px-12 h-16 lg:h-20">
         <Image
           src="/assets/icons/logo.png"
