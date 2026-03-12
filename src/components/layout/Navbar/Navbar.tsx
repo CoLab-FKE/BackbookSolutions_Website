@@ -49,7 +49,7 @@ export default function Navbar() {
         </div>
 
         <Button
-          className="md:hidden text-3xl text-slate-800 border-none outline-none bg-transparent"
+          className="md:hidden hover:bg-none hover:bg-transparent text-3xl text-slate-800 border-none outline-none bg-transparent"
           onClick={() => setOpen(!open)}
         >
           ☰

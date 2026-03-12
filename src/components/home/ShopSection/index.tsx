@@ -5,7 +5,7 @@ import { BsArrowDownRightSquare } from "react-icons/bs";
 
 export default function ShopSection() {
   return (
-    <div className="flex flex-col gap-15 min-h-screen w-[90%] justify-center mx-auto py-50">
+    <div className="flex flex-col gap-15 min-h-screen w-[90%] justify-center mx-auto py-40">
       <span className="flex justify-between w-full">
         <h2 className="text-3xl font-light md:text-4xl">
           <strong className="font-bold">Peças sobressalentes</strong> de alta
