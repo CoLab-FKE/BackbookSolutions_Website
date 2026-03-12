@@ -20,7 +20,7 @@ const depoimentos = [
 
 function Depoimentos() {
   return (
-    <section className="w-full py-16 px-4 bg-gray-50">
+    <section className="w-full min-h-screen justify-center flex items-center py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
           Depoimentos

@@ -8,7 +8,7 @@ export default function WhyUs() {
       {/* Right-side faded background lines */}
       <div
         aria-hidden
-        className="pointer-events-none select-none absolute inset-y-0 right-0 w-[55%] max-w-[720px] z-0 opacity-60 sm:opacity-80 lg:opacity-90"
+        className="pointer-events-none select-none absolute inset-y-0 right-0 w-[55%] max-w-180 z-0 opacity-60 sm:opacity-80 lg:opacity-90"
       >
         <div className="absolute inset-0 bg-[url('/assets/images/Lines-BG.png')] bg-no-repeat bg-cover bg-center" />
         <div className="absolute inset-0 bg-linear-to-l from-transparent via-background/20 to-background/70" />
