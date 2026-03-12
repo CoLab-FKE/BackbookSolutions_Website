@@ -38,7 +38,7 @@ export default function HeroSection() {
       <section className="flex items-center gap-4 flex-col md:flex-row">
         <Button>Solicitar orçamento</Button>
 
-        <Button variant="outline" className="flex items-center gap-3">
+        <Button variant="outline" className="flex items-center gap-3 hover:bg-primary-color/10">
           Nossos serviços <IoArrowDownCircleOutline size={19} />
         </Button>
       </section>
