@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaCheckSquare } from "react-icons/fa";
 
 const services = [
@@ -9,43 +11,82 @@ const services = [
   "Serviços Jurídicos – assessoria e acompanhamento legal para empresas",
 ];
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+};
+
 function ServicosOferecidos() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="w-full py-40 pb-60 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
-        {/* Imagem */}
-        <div className="w-full">
-          <Image
-            src="/assets/images/young-worker.jpg"
-            alt="Serviços Oferecidos"
-            width={800}
-            height={600}
-            className="rounded-lg object-cover w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px]"
-          />
-        </div>
+    <section className="w-full px-4 py-40 pb-60 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10">
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-full overflow-hidden rounded-lg"
+        >
+          <motion.div
+            initial={shouldReduceMotion ? false : { scale: 1.06 }}
+            whileInView={shouldReduceMotion ? undefined : { scale: 1 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+          >
+            <Image
+              src="/assets/images/young-worker.jpg"
+              alt="Serviços Oferecidos"
+              width={800}
+              height={600}
+              className="h-[250px] w-full rounded-lg object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]"
+            />
+          </motion.div>
+        </motion.div>
 
-        {/* Conteúdo */}
-        <div className="flex flex-col gap-6">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl text-black font-bold">
+        <motion.div
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={container}
+          className="flex flex-col gap-6"
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl font-bold text-black sm:text-3xl lg:text-4xl"
+          >
             Serviços <span className="font-light">Oferecidos</span>
-          </h2>
+          </motion.h2>
 
-          <div className="flex flex-col gap-4">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 bg-indigo-900 rounded-lg p-3 sm:p-4 shadow-md 
-                           hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:translate-y-0"
+          <motion.div variants={container} className="flex flex-col gap-4">
+            {services.map((service) => (
+              <motion.div
+                key={service}
+                variants={fadeUp}
+                whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+                transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                className="flex items-start gap-3 rounded-lg bg-indigo-900 p-3 shadow-md transition-all duration-300 hover:shadow-xl active:translate-y-0 sm:p-4"
               >
-                <FaCheckSquare className="text-white mt-1 flex-shrink-0" size={20} />
-                <span className="text-white text-sm sm:text-base">{service}</span>
-              </div>
+                <FaCheckSquare
+                  className="mt-1 flex-shrink-0 text-white"
+                  size={20}
+                />
+                <span className="text-sm text-white sm:text-base">{service}</span>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
 export default ServicosOferecidos;
+

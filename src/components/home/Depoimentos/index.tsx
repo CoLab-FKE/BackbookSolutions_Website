@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 
 const depoimentos = [
   {
@@ -18,32 +20,60 @@ const depoimentos = [
   },
 ];
 
-function Depoimentos() {
-  return (
-    <section className="w-full min-h-screen justify-center flex items-center py-16 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          Depoimentos
-        </h2>
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {depoimentos.map((d, index) => (
-            <div
-              key={index}
-              className="bg-indigo-900 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+};
+
+function Depoimentos() {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <section className="flex w-full min-h-screen items-center justify-center bg-gray-50 px-4 py-16">
+      <motion.div
+        initial={shouldReduceMotion ? false : "hidden"}
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={container}
+        className="mx-auto max-w-7xl"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="mb-12 text-center text-3xl font-bold sm:text-4xl"
+        >
+          Depoimentos
+        </motion.h2>
+
+        <motion.div
+          variants={container}
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {depoimentos.map((d) => (
+            <motion.div
+              key={d.autor}
+              variants={fadeUp}
+              whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+              transition={{ type: "spring", stiffness: 220, damping: 18 }}
+              className="rounded-xl bg-indigo-900 p-6 shadow-md transition-shadow duration-300 hover:shadow-xl"
             >
-              <p className="text-white text-base sm:text-lg mb-4">
+              <p className="mb-4 text-base text-white sm:text-lg">
                 &ldquo;{d.texto}&rdquo;
               </p>
-              <span className="block text-gray-300 font-semibold text-sm sm:text-base">
+              <span className="block text-sm font-semibold text-gray-300 sm:text-base">
                 - {d.autor}
               </span>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
 
 export default Depoimentos;
+
