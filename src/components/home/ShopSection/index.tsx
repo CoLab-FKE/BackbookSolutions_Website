@@ -6,18 +6,16 @@ import { shopItems } from "@/store/shopItems";
 import { motion, useReducedMotion } from "framer-motion";
 import { BsArrowDownRightSquare } from "react-icons/bs";
 
-const easeOut = [0.16, 1, 0.3, 1] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
-};
-
 export default function ShopSection() {
   const shouldReduceMotion = useReducedMotion();
+  const easeOut = [0.16, 1, 0.3, 1] as const;
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
+  };
   return (
-    <section className="mx-auto flex min-h-screen w-[90%] flex-col justify-center gap-[3.75rem] py-40">
+    <section className="mx-auto flex min-h-screen w-[90%] flex-col justify-center gap-15 py-40">
       <motion.div
         initial={shouldReduceMotion ? false : "hidden"}
         whileInView="show"

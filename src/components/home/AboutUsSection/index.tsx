@@ -12,18 +12,18 @@ const features = [
   "Compromisso com a eficiência e a transparência",
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
-};
-
 function AboutUsSection() {
   const shouldReduceMotion = useReducedMotion();
+
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
+  };
 
   return (
     <motion.section
@@ -31,7 +31,7 @@ function AboutUsSection() {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
       variants={container}
-      className="flex min-h-screen w-full flex-col justify-center rounded-md bg-linear-to-b bg-primary-color px-4 py-[7.5rem] text-center sm:px-8 lg:px-[3.75rem] md:py-0"
+      className="flex min-h-screen w-full flex-col justify-center rounded-md bg-linear-to-b bg-primary-color px-4 py-30 text-center sm:px-8 lg:px-15 md:py-0"
     >
       <motion.h2
         variants={fadeUp}

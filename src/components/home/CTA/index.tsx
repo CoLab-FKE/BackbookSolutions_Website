@@ -4,13 +4,11 @@ import Button from "@/components/ui/Button";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
-const easeOut = [0.16, 1, 0.3, 1] as const;
-
 export default function CTA() {
   const shouldReduceMotion = useReducedMotion();
-
+  const easeOut = [0.16, 1, 0.3, 1] as const;
   return (
-    <section className="relative my-[7.5rem] flex h-[70vh] min-h-[32rem] w-full flex-col justify-center overflow-hidden rounded-md">
+    <section className="relative my-30 flex h-[70vh] min-h-128 w-full flex-col justify-center overflow-hidden rounded-md">
       <motion.div
         aria-hidden
         className="absolute inset-0"

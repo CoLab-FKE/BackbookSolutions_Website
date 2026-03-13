@@ -5,30 +5,28 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { FaCheckSquare } from "react-icons/fa";
 
-const easeOut = [0.16, 1, 0.3, 1] as const;
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: easeOut },
-  },
-};
-
 export default function WhyUs() {
   const shouldReduceMotion = useReducedMotion();
+  const easeOut = [0.16, 1, 0.3, 1] as const;
 
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: easeOut },
+    },
+  };
   return (
-    <section className="relative w-full px-4 pb-44 sm:px-6 sm:pb-52 lg:px-8 my-[7.5rem]">
+    <section className="relative w-full px-4 pb-44 sm:px-6 sm:pb-52 lg:px-8 my-30">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[55%] max-w-[45rem] select-none opacity-60 sm:opacity-80 lg:opacity-90"
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[55%] max-w-90 select-none opacity-60 sm:opacity-80 lg:opacity-90"
       >
         <div className="absolute inset-0 bg-[url('/assets/images/Lines-BG.png')] bg-cover bg-center bg-no-repeat" />
         <div className="absolute inset-0 bg-linear-to-l from-transparent via-background/20 to-background/70" />
@@ -51,7 +49,8 @@ export default function WhyUs() {
 
           <motion.p variants={fadeUp} className="max-w-prose text-black/70">
             Juntamos peças sobressalentes de qualidade com atendimento próximo e
-            suporte técnico para manter a sua operação a funcionar sem surpresas.
+            suporte técnico para manter a sua operação a funcionar sem
+            surpresas.
           </motion.p>
 
           <motion.div variants={fadeUp} className="overflow-hidden rounded-xl">
@@ -106,14 +105,14 @@ export default function WhyUs() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 z-20 select-none overflow-hidden md:-bottom-[12.5rem]"
+        className="pointer-events-none absolute inset-x-0 z-20 select-none overflow-hidden md:-bottom-50"
       >
         <motion.div
           initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative h-[16.25rem] sm:h-80 md:h-[28.75rem]"
+          className="relative h- sm:h-80 md:h-115"
         >
           <motion.div
             initial={shouldReduceMotion ? false : { x: -24, opacity: 0 }}

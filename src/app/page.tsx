@@ -38,7 +38,7 @@ export default function Home() {
         <Depoimentos />
       </div>
 
-      <div id="contacto" className="w-full md:px-10 scroll-mt-24">
+      <div id="cta" className="w-full md:px-10 scroll-mt-24">
         <CTA />
       </div>
 

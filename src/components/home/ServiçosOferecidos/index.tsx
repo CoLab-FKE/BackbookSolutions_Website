@@ -4,28 +4,27 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaCheckSquare } from "react-icons/fa";
 
-const easeOut = [0.16, 1, 0.3, 1] as const;
-
-const services = [
-  "HST (Higiene, Segurança e Trabalho) - consultoria e formações para ambientes mais seguros",
-  "Recursos Humanos – recrutamento, gestão e apoio à capacitação de pessoal",
-  "Contabilidade e Gestão Empresarial – controlo financeiro, fiscal e estratégico",
-  "Serviços Jurídicos – assessoria e acompanhamento legal para empresas",
-];
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
-};
-
 function ServicosOferecidos() {
   const shouldReduceMotion = useReducedMotion();
+  const easeOut = [0.16, 1, 0.3, 1] as const;
 
+  const services = [
+    "HST (Higiene, Segurança e Trabalho) - consultoria e formações para ambientes mais seguros",
+    "Recursos Humanos – recrutamento, gestão e apoio à capacitação de pessoal",
+    "Contabilidade e Gestão Empresarial – controlo financeiro, fiscal e estratégico",
+    "Serviços Jurídicos – assessoria e acompanhamento legal para empresas",
+  ];
+
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
+  };
+  
   return (
     <section className="w-full px-4 py-40 pb-60 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10">
@@ -48,7 +47,7 @@ function ServicosOferecidos() {
               alt="Serviços Oferecidos"
               width={800}
               height={600}
-              className="h-[250px] w-full rounded-lg object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]"
+              className="h-62.5 w-full rounded-lg object-cover sm:h-87.5 md:h-100 lg:h-112.5"
             />
           </motion.div>
         </motion.div>
@@ -76,11 +75,10 @@ function ServicosOferecidos() {
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="flex items-start gap-3 rounded-lg bg-indigo-900 p-3 shadow-md transition-all duration-300 hover:shadow-xl active:translate-y-0 sm:p-4"
               >
-                <FaCheckSquare
-                  className="mt-1 flex-shrink-0 text-white"
-                  size={20}
-                />
-                <span className="text-sm text-white sm:text-base">{service}</span>
+                <FaCheckSquare className="mt-1 shrink-0 text-white" size={20} />
+                <span className="text-sm text-white sm:text-base">
+                  {service}
+                </span>
               </motion.div>
             ))}
           </motion.div>

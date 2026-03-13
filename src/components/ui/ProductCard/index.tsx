@@ -7,9 +7,9 @@ interface ProductCardProps {
   product: Product;
 }
 
-export default function ProductCard({ product, ...props}: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div {...props} className="flex flex-col gap-15 justify-between pb-5 group cursor-pointer">
+    <div className="flex flex-col gap-15 justify-between pb-5 group cursor-pointer">
       <section className="flex flex-col gap-2">
         <div className="rounded-t-md overflow-hidden">
           <Image
