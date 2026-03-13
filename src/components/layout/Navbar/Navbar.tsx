@@ -2,7 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type NavItem = {
   id: string;
@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true)
 
   const scrollToId = useCallback((id: string) => {
     const el = document.getElementById(id);
@@ -36,8 +37,24 @@ export default function Navbar() {
     [scrollToId],
   );
 
+  useEffect(() =>{
+    let lastScrollY = window.scrollY
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY
+      if(currentScrollY > lastScrollY && currentScrollY > 100){
+        setIsVisible(false)
+      }else{
+        setIsVisible(true)
+      }
+      lastScrollY = currentScrollY
+    }
+
+    window.addEventListener('scroll', controlNavbar)
+    return () => window.removeEventListener('scroll', controlNavbar)
+  }, [])
+
   return (
-    <header className="w-full bg-white z-11">
+    <header className={`w-full text-black bg-white z-50 fixed top-0 transition-all duration-200 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="flex items-center justify-between px-6 lg:px-12 h-16 lg:h-20">
         <a href="#inicio" onClick={onNavClick("inicio")} aria-label="Ir para o início">
           <Image
@@ -55,7 +72,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <a key={item.id} href={`#${item.id}`} onClick={onNavClick(item.id)} className="relative group">
                 {item.label}
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-700 transition-all group-hover:w-full" />
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-blue-700 transition-all group-hover:w-full" />
               </a>
             ))}
           </nav>
