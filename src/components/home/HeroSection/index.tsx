@@ -6,6 +6,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 import { useCallback } from "react";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const heroImages = [
   { id: 1, src: "/assets/images/hero/photo-1.jpg" },
   { id: 2, src: "/assets/images/hero/photo-2.jpg" },
@@ -35,7 +37,7 @@ export default function HeroSection() {
         <motion.h1
           initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: easeOut }}
           className="max-w-4xl text-center text-3xl font-bold md:text-4xl"
         >
           Soluções Industriais e Empresariais{" "}
@@ -47,7 +49,7 @@ export default function HeroSection() {
         <motion.p
           initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+          transition={{ duration: 0.5, ease: easeOut, delay: 0.05 }}
           className="max-w-4xl text-center text-sm font-light md:text-base"
         >
           Na 2BS Bacbook Solutions, combinamos a venda de peças sobressalentes
@@ -98,7 +100,7 @@ export default function HeroSection() {
                 }}
                 className={`absolute ${mobileLayout} ${desktopOffset} sm:static sm:w-full sm:rotate-0 sm:translate-x-0`}
               >
-                <div className="relative aspect-3/4 w-full overflow-hidden rounded-xl bg-muted shadow-sm ring-1 ring-black/5">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-muted shadow-sm ring-1 ring-black/5">
                   <Image
                     src={img.src}
                     alt={`Hero image ${img.id}`}

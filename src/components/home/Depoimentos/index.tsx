@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const depoimentos = [
   {
     texto:
@@ -27,7 +29,7 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
 };
 
 function Depoimentos() {
@@ -76,4 +78,3 @@ function Depoimentos() {
 }
 
 export default Depoimentos;
-

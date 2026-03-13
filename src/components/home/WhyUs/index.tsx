@@ -5,6 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { FaCheckSquare } from "react-icons/fa";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
@@ -15,7 +17,7 @@ const fadeUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: easeOut },
   },
 };
 
@@ -117,7 +119,7 @@ export default function WhyUs() {
             initial={shouldReduceMotion ? false : { x: -24, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: easeOut }}
           >
             <Image
               src="/assets/images/caterpilar-6-SF.png"
@@ -132,7 +134,7 @@ export default function WhyUs() {
             initial={shouldReduceMotion ? false : { x: 24, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
+            transition={{ duration: 0.6, ease: easeOut, delay: 0.05 }}
           >
             <Image
               src="/assets/images/caterpilar-6-SF.png"
@@ -147,4 +149,3 @@ export default function WhyUs() {
     </section>
   );
 }
-

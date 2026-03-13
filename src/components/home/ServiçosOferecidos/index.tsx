@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaCheckSquare } from "react-icons/fa";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const services = [
   "HST (Higiene, Segurança e Trabalho) - consultoria e formações para ambientes mais seguros",
   "Recursos Humanos – recrutamento, gestão e apoio à capacitação de pessoal",
@@ -18,7 +20,7 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
 };
 
 function ServicosOferecidos() {
@@ -31,7 +33,7 @@ function ServicosOferecidos() {
           initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: easeOut }}
           className="w-full overflow-hidden rounded-lg"
         >
           <motion.div
@@ -89,4 +91,3 @@ function ServicosOferecidos() {
 }
 
 export default ServicosOferecidos;
-
