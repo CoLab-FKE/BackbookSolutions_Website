@@ -6,9 +6,11 @@ import { shopItems } from "@/store/shopItems";
 import { motion, useReducedMotion } from "framer-motion";
 import { BsArrowDownRightSquare } from "react-icons/bs";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
 };
 
 export default function ShopSection() {
@@ -41,11 +43,10 @@ export default function ShopSection() {
         initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+        transition={{ duration: 0.5, ease: easeOut, delay: 0.05 }}
       >
         <ProductList products={shopItems} />
       </motion.div>
     </section>
   );
 }
-

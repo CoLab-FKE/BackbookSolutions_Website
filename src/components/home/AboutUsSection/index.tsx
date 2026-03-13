@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { FaCheckSquare } from "react-icons/fa";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 const features = [
   "Variedade e qualidade em peças industriais e automotivas",
   "Equipa experiente e multidisciplinar",
@@ -17,7 +19,7 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
 };
 
 function AboutUsSection() {
@@ -84,4 +86,3 @@ function AboutUsSection() {
 }
 
 export default AboutUsSection;
-

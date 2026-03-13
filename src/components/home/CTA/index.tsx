@@ -4,6 +4,8 @@ import Button from "@/components/ui/Button";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
 export default function CTA() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -14,7 +16,7 @@ export default function CTA() {
         className="absolute inset-0"
         initial={shouldReduceMotion ? false : { scale: 1.05 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1.2, ease: easeOut }}
       >
         <Image
           src="/assets/images/young-worker.jpg"
@@ -32,14 +34,14 @@ export default function CTA() {
         className="absolute inset-0 bg-black/60"
         initial={shouldReduceMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: easeOut }}
       />
 
       <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
+        transition={{ duration: 0.55, ease: easeOut }}
         className="relative z-10 max-w-7xl px-6 py-24 sm:px-10"
       >
         <div className="flex max-w-3xl flex-col gap-6">
@@ -68,4 +70,3 @@ export default function CTA() {
     </section>
   );
 }
-
